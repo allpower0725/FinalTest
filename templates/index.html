@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <title>期末測驗</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="stylesheet" type="text/css" href="{{url_for('static',filename='dist/semantic.min.css')}}">
+</head>
+<body>
+    <div class="ui container">
+      <div class="ui icon info huge message" style="margin-top: 2rem;">
+        <i class="comment dots outline icon"></i>
+        <div class="content">
+          <div class="header">
+            [AI思維與程式設計]期末測驗 注意事項
+          </div>
+          <ul class="list">
+            <li>測驗內容為對API的認知和使用，以及Python的基本語法</li>
+            <li>建議使用Google的<a target="_blank" style="color:red;" href="https://colab.research.google.com/">colab作為答題平台</a></li>
+            <li>考試時間:<div class="ui basic huge label" style="margin-left:2px;">16:30 ~ 17:30</div></li>
+            <li>闖關時請按照由上而下的順序，請勿跳關</li>
+            <li>答題有次數限制，合理次數內，答錯不扣分</li>
+            <li>可上網使用任何方法查詢，但不可詢問同學或代答</li>
+            <li>每階段都會顯示分數，完成後請自行離開</li>
+          </ul>
+        </div>
+      </div>
+      <h3 class="ui horizontal divider header">
+        <i class="list ol icon"></i>
+        關卡題目
+      </h3>
+      <div class="ui relaxed divided big list" style="padding-bottom: 2rem;">
+        <div class="item">
+          <div class="content">
+            <div class="header"><div class="ui brown circular large label">1</div> 本題要使用到的API為<span style="color:red;">{{ pub_url }}Step_1/你的學號</span>，請使用HTTP方法中的GET，訪問此API，以完成簽到
+            </div>
+            <div class="description">提示:若學號為S12345678，則訪問{{ pub_url }}Step_1/S12345678，學號大小寫皆可<span style="color:red;">[25分]</span></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="content">
+            <div class="header"><div class="ui brown circular large label">2</div> 本題要使用到的API為<span style="color:red;">{{ pub_url }}Step_2/你的學號</span>，並利用slice取得你學號的[4:7]切片當作答案，最後將答案以JSON格式，
+<pre class="prettyprint"><code class="language-py hljs python"><span class="hljs-keyword" style="font-weight: 400;">{"ans": 你的答案}</span></code></pre>
+              使用POST方法，夾帶答案的參數為data，傳送至API，以完成此題 </div>
+              <div class="description">提示:若學號為S12345678，答案為456，
+  <div class="description">response = requests.post(url='{{ pub_url }}Step_2/S12345678', data={'ans': '456'})</div><span style="color:red;">[35分]</span></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="content">
+            <div class="header"><div class="ui brown circular large label">3</div> 本題要使用到的API為<span style="color:red;">{{ pub_url }}Step_3/你的學號</span>，請先宣告3個變數x、y、z，其中x為你學號的切片[1:3]，y為你學號的切片[4:7]，z為你學號的切片[7:]；請計算從 x 到 y（不包含 y）之間，以間距 z 遞增的數字總和，作為本題的答案，將答案以JSON格式，
+              <pre class="prettyprint"><code class="language-py hljs python"><span class="hljs-keyword" style="font-weight: 400;">{"ans": 你的答案}</span></code></pre>並使用POST方法，夾帶答案的參數為data，傳送至API，以完成此題 </div>
+              <div class="description">提示:可用for迴圈in range的方式，來算出本題的答案
+                <pre class="prettyprint"><code class="language-py hljs python"><span class="hljs-keyword" style="font-weight: 400;">for i in range(int(x),int(y),int(z)):
+    #開始你的計算</span></code></pre><span style="color:red;">[40分]</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- JavaScript Includes -->
+    <script src="{{url_for('static',filename='js/jquery-3.7.0.min.js')}}"></script>
+    <script src="{{url_for('static',filename='dist/semantic.min.js')}}"></script>
+</body>
+</html>
